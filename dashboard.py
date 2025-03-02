@@ -18,10 +18,8 @@ st.sidebar.header("Filter Data")
 start_date = pd.to_datetime(st.sidebar.date_input("Tanggal Awal", pd.to_datetime(data_sepeda['dteday']).min()))
 end_date = pd.to_datetime(st.sidebar.date_input("Tanggal Akhir", pd.to_datetime(data_sepeda['dteday']).max()))
 
-# Konversi format tanggal pada dataset
 data_sepeda['dteday'] = pd.to_datetime(data_sepeda['dteday'])
 
-# Filter dataset berdasarkan rentang tanggal yang dipilih
 data_filtered = data_sepeda[(data_sepeda['dteday'] >= start_date) & (data_sepeda['dteday'] <= end_date)]
 
 analisis_terpilih = st.selectbox(
